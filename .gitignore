@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Our.UDUF.StopIt/bin
+/Our.UDUF.StopIt/Client/.vscode
+/Our.UDUF.StopIt/Client/node_modules
+/Our.UDUF.StopIt/obj
+/Our.UDUF.StopIt/wwwroot/App_Plugins/
