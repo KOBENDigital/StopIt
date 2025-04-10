@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Text.Json.Nodes;
+using Microsoft.Extensions.Logging;
 using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Core.Security;
 
@@ -28,14 +29,20 @@ namespace Our.UDUF.StopIt.NotificationHandlers
 					return;
 				}
 
-				var entityWithStopItProperty = notification.SavedEntities.FirstOrDefault(x => x.Properties.FirstOrDefault(y => y.PropertyType.Alias == "our.UDUF.StopId") != null);
+				var entityWithStopItProperty = notification.SavedEntities.FirstOrDefault(x => x.Properties.FirstOrDefault(y => y.PropertyType.Alias == "udufStopIt") != null);
 				if (entityWithStopItProperty != null)
 				{
-					var stopItPropertyValue = entityWithStopItProperty.Properties.First(x => x.PropertyType.Alias == "our.UDUF.StopId").GetValue();
+					var stopItPropertyValue = entityWithStopItProperty.Properties.First(x => x.PropertyType.Alias == "udufStopIt").GetValue()?.ToString();
 
-					if (Convert.ToBoolean(stopItPropertyValue))
+					if (!string.IsNullOrWhiteSpace(stopItPropertyValue))
 					{
-						notification.CancelOperation(new EventMessage("Action rejected", $"You cannot save '{entityWithStopItProperty.Name}', it's been locked down by StopIt", EventMessageType.Error));
+						var node = JsonNode.Parse(stopItPropertyValue);
+						var isProtected = node?["protected"]?.GetValue<bool>() ?? false;
+
+						if (isProtected)
+						{
+							notification.CancelOperation(new EventMessage("Action rejected", $"You cannot save '{entityWithStopItProperty.Name}', it's been locked down by StopIt", EventMessageType.Error));
+						}
 					}
 				}
 			}

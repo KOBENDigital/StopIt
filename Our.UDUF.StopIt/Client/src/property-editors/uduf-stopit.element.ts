@@ -2,7 +2,6 @@
 import { UmbPropertyEditorUiElement, UmbPropertyValueChangeEvent } from "@umbraco-cms/backoffice/property-editor";
 import { UmbLitElement } from "@umbraco-cms/backoffice/lit-element";
 import { StopIt } from "../types/StopIt";
-import { UmbChangeEvent } from "@umbraco-cms/backoffice/event";
 import { UMB_NOTIFICATION_CONTEXT } from "@umbraco-cms/backoffice/notification";
 
 
@@ -11,7 +10,7 @@ export default class UdufStopItPropertyEditorUIElement extends UmbLitElement imp
   
 
     @property({ type: Object })
-    public value: StopIt;
+    public value: StopIt = new StopIt();
 
   
 
@@ -25,7 +24,7 @@ export default class UdufStopItPropertyEditorUIElement extends UmbLitElement imp
         super();
 
         this.consumeContext(UMB_NOTIFICATION_CONTEXT, (_instance) => {
-            console.log("loaded:" + this.value?.pr + "|");
+            console.log("loaded:" + this.value?.protected + "|");
 
 
             if (!this.value) {
