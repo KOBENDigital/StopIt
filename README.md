@@ -7,4 +7,4 @@ The property visibility is permission based, only users with required permission
 
 # Extensions
 
-Future extension is to allow this toggle to be used across any content type.
+Currently the toggle is only available for the Media folder,  future extension is to allow this toggle to be used across any content type.
