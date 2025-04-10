@@ -1,0 +1,14 @@
+{
+  "id": "UDUF.Protect",
+  "name": "UDUF.Protect",
+  "version": "0.0.0",
+  "allowPackageTelemetry": true,
+  "extensions": [
+    {
+      "name": "UDUFProtect Bundle",
+      "alias": "UDUF.Protect.Bundle",
+      "type": "bundle",
+      "js": "/App_Plugins/UDUFProtect/uduf-protect.js"
+    }
+  ]
+}
