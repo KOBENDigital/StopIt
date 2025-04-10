@@ -7,7 +7,7 @@ const propertyEditors: Array<ManifestPropertyEditorUi> = [
 		name: 'UDUF StopId',
 		element: () => import('./uduf-stopit.element'),
 		meta: {
-			label: "UDUF Protect",
+			label: "UDUF StopIt",
 			propertyEditorSchemaAlias: "Umbraco.Plain.Json",
 			icon: "icon-code",
 			group: "security",

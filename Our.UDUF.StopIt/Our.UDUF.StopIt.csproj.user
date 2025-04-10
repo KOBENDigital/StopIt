@@ -8,5 +8,8 @@
     <None Update="Client\src\property-editors\uduf-stopit.element.ts">
       <SubType>Code</SubType>
     </None>
+    <None Update="Client\src\types\StopIt.ts">
+      <SubType>Code</SubType>
+    </None>
   </ItemGroup>
 </Project>
