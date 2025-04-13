@@ -1,0 +1,50 @@
+{
+  "$schema": "https://marketplace.umbraco.com/umbraco-marketplace-schema.json",
+  "AddOnPackagesRequiredForUmbracoCloud": [],
+  "AlternateCategory": "",
+  "AuthorDetails": {
+    "Name": "UDUF Hackathon 2025 Team",
+    "Description": "Created at UDUF 2025, an Umbraco package to prevent backoffice users from renaming, moving or deleting content or media",
+    "Url": "https://github.com/KOBENDigital/StopIt/",
+    "ImageUrl": "",
+    "Contributors": [
+      {
+        "Name": "Joseph He",
+        "Url": ""
+      },
+      {
+        "Name": "Jake Williamson",
+        "Url": "https://www.linkedin.com/in/jakewilliamson/"
+      },
+      {
+        "Name": "David Sheiles",
+        "Url": "https://www.linkedin.com/in/davidsheiles/"
+      },
+      {
+        "Name": "David Sheiles",
+        "Url": "https://www.linkedin.com/in/davidsheiles/"
+      },
+      {
+        "Name": "Andrew Lacey",
+        "Url": ""
+      },
+      {
+        "Name": "Ravi Motha",
+        "Url": "https://www.linkedin.com/in/ravimotha/"
+      }
+    ],
+    "SyncContributorsFromRepository": "true"
+  },
+  "Categories": "editor-tools",
+  "Description": "Ever had a node name accidentally changed in your Umbraco site? Say goodbye to those headaches with StopIt — a handy little package that lets you Lock the Name field of Content and Media nodes so it can't be changed unless explicitly unlocked by an admin.",
+  "DiscussionForumUrl": "",
+  "DocumentationUrl": "https://github.com/KOBENDigital/StopIt",
+  "LicenseTypes": [ "Free" ],
+  "IssueTrackerUrl": "https://github.com/KOBENDigital/StopIt/issues",
+  "PackageType": "Package",
+  "PackagesByAuthor": [],
+
+  "Tags": [],
+  "Title": "StopIt",
+  "VersionDependencyMode": ""
+}
