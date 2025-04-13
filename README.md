@@ -1,7 +1,7 @@
 ﻿# 🛑 StopIt
 ## Lock Your content and media node Names from being accidentally renamed.
 
-*Created at UDUF 2025, an Umbraco package to prevent backoffice users from renaming, moving or deleting content or media*
+*Created at UDUF 2025, an Umbraco package to prevent backoffice users from renaming, moving or deleting media folders*
 
 Currently the toggle is only available for the Media folder,  future extension is to allow this toggle to be used across any content type.
 
@@ -13,7 +13,7 @@ Lock the Name field of Content and Media nodes so it can't be changed unless exp
 
 ## ✨ Key Features
 
-- 🔐 **Lock/Unlock node names** for Content and Media items and folders  
+- 🔐 **Lock/Unlock node names** for Content (Coming Soon) and Media items and folders  
 - ✅ Simple toggle interface — lock it when you're done, unlock when edits are needed  
 - 🔧 Ideal for protecting key nodes in large or collaborative environments  
 - 🎉 Born at the **Umbraco Down Under Festival 2025 Hackathon**!
@@ -33,8 +33,8 @@ Install via NuGet or manually, and you're ready to lock things down:
 ## 📖 Documentation
 
 1. Create a Data type of type `StopIt` in the backoffice. 
-2. Add StopIt to your DocType or MediaType
-   - For Content Types, add it to the DocType.
+2. Add StopIt to your DocType or MediaType. The Alias must be set to `udufStopIt`
+   - For Content Types (Coming Soon), add it to the DocType.
    - For Media Types, add it to the MediaType.
 3. For any node you want to lock, toggle the lock switch and save / publish.
 
