@@ -4,12 +4,23 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
+	  <Version>1.0.0</Version>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>UDUF.Protect</PackageId>
-    <Product>UDUF.Protect</Product>
-    <Title>UDUF.Protect</Title>
+    <PackageId>our.UDUF.StopIt</PackageId>
+    <Product>Stop It</Product>
+    <Title>StopIt</Title>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>UDUF Hackathon 2025 Team</Authors>
+    <PackageProjectUrl>https://github.com/KOBENDigital/StopIt/</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/KOBENDigital/StopIt/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Umbraco;Umbraco 15;UDUF;Hackathon;umbraco package;community package;umbraco protect node;StopIt</PackageTags>
+    <PackageReleaseNotes>This is the first release of the community package created by the UDUF Umbraco team at the Umbraco Down Under festival</PackageReleaseNotes>
+    <Description>Created at UDUF 2025, an Umbraco package to prevent backoffice users from renaming, moving or deleting content or media.
+</Description>
   </PropertyGroup>
 
 
@@ -23,6 +34,14 @@
   <ItemGroup>
     <!-- Dont include the client folder as part of packaging nuget build -->
     <Content Remove="Client\**" />
+	  <None Include="..\README.md">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\umbraco-marketplace.json">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+	  </None>
 
     <!-- However make the Umbraco-package.json included for dotnet pack or nuget package and visible to the solution -->
     <None Include="Client\public\umbraco-package.json" Pack="false" />

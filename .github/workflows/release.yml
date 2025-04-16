@@ -1,0 +1,67 @@
+##################################################################################################################
+#
+# Setup Instructions:
+# - Create a NuGet API key from NuGet.org.
+# - Store the API key in your GitHub repository secrets (NUGET_API_KEY).
+# - Modify the .github/workflows/publish.yml to fit your project's name and versioning requirements.
+# - Tag a new release in GitHub to trigger the workflow.
+# 
+##################################################################################################################
+
+
+
+name: Publish Razor Class Library to NuGet
+
+on:
+   push:
+    branches: [ main ]
+   pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+     matrix:
+       node-version: ['20.x']
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        working-directory: MetaMomentum/Client/
+        run: npm ci
+
+      - name: Build Client
+        working-directory: MetaMomentum/Client/
+        run: npm run build
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore dependencies
+        working-directory: Our.UDUF.StopIt/
+        run: dotnet restore
+
+      - name: Build
+        working-directory: Our.UDUF.StopIt/
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Pack
+        working-directory: Our.UDUF.StopIt/
+        run: dotnet pack --configuration Release --no-build --output ./nupkg
+
+      - name: Publish to NuGet
+        working-directory: Our.UDUF.StopIt/
+        run: dotnet nuget push ./nupkg/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+
+
